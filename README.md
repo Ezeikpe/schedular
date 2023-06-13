@@ -1,3 +1,8 @@
+APP VERSION
+
+
+
+WINDOW VERSION
 **Steps to develop To-do List Project**
 Import the Tkinter library
 Create to-do list application window
