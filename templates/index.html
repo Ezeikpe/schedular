@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">    
+    <meta name="author" content="Ezeikpe ALX Project Task - Scheduler App">    
     <link rel="shortcut icon" href="favicon.png"> 
     
     <!-- Google Font -->
@@ -45,19 +45,33 @@
   <a href="#content-section">Pricing</a>
   <a href="#author-section" class="split">About the Developer</a>
 </div>
-    <section class="hero-section">
+	<section class="hero-section">
 	    <div class="container">
 		    <div class="row">
 			    <div class="col-12 col-md-7 pt-5 mb-5 align-self-center">
 				    <div class="promo pe-md-3 pe-lg-5">
-					    <h1 class="headline mb-3">
-						    With Schedular! Accomplish it <br>on time   
-					    </h1><!--//headline-->
-					    <div class="subheadline mb-4">
-					      <p align="justify">Our brains like things to be finished off and tidy, which means that we worry about things that need doing. That ought to mean that making a list of things to do makes us more worried, but it turns out that it actually tricks the brain into thinking that the task has been done.</p>
-					      <p align="justify"><strong>In other words, writing things down on a Schedular App means that you stop worrying, and actually have time to prioritise and then complete your tasks.</strong></p>
-					    </div><!--//subheading-->
 					    
+					    <h1>Start Here</h1>
+						<div class="subheadline mb-4">
+    <form action="{{ url_for('add') }}" method="post">
+      <input type="text" name="item_text">
+      <input type="submit" value="Add">
+    </form>
+    <ul>
+      {% for item in todo_items %}
+        <li>
+          <input type="checkbox" name="item_completed" value="{{ loop.index0 }}" {% if item.completed %}checked{% endif %}>
+          {{ item.text }}
+        </li>
+      {% endfor %}
+    </ul>
+    <form action="{{ url_for('remove') }}" method="post">
+      <input type="submit" value="Remove">
+    </form>
+
+					    
+				    </div><!--//subheading-->
+			
 					    <div class="cta-holder row gx-md-3 gy-3 gy-md-0">
 						    <div class="col-12 col-md-auto">
 						        <a class="btn btn-primary w-100" href="#">Free App Version</a>
@@ -72,16 +86,7 @@
 			    </div><!--col-->
 			    <div class="col-12 col-md-5 mb-5 align-self-center">
 				    <div class="book-cover-holder">
-					    <h1>Start Here</h1>
-    <ul>
-        
-            <li> <a href="/delete/{{ loop.index0 }}">[delete]</a></li>
-        
-    </ul>
-    <form action="/add" method="post">
-        <input type="text" name="item" placeholder="Add a new item">
-        <input type="submit" value="Add">
-    </form>
+					    <img class="img-fluid book-cover" src="assets/images/devbook-cover.png" alt="book cover" >
 					    
 				    </div><!--//book-cover-holder-->
 				    
@@ -91,12 +96,103 @@
       
     
 
+    <section id="audience-section" class="audience-section py-5">
+      <div class="container">
+		    <h2 class="section-heading text-center mb-4">Features</h2>
+		    <div class="section-intro single-col-max mx-auto text-center mb-5">
+			    <div align="justify">To-do lists are a list of tasks that an individual needs to complete or accomplish. Tasks are typically put in order by priority or importance. A to-do list can be written on a piece of paper or by utilizing task management software such as Schedular. Items on the list can pertain to one's personal or professional life.
+		        </div>
+		    </div><!--//section-intro-->
+		    <div class="audience mx-auto">
+			    <div class="item row gx-3">
+				    <div class="col-auto item-icon"><i class="fas fa-user-check"></i></div>
+				    <div class="col">
+					    <h4 class="item-title">Improves your memory</h4>
+					    <div class="item-desc">A to do list acts as an external memory aid. It’s only possible to hold a few pieces of information at one time. Keep a to do list and you’ll be able to keep track of everything, rather than just a few of the tasks you need to do. Your to do list will also reinforce the information, which makes it less likely you’re going to forget something.</div>
+				    </div><!--//col-->
+			    </div><!--//item-->			    
+			    <div class="item row gx-3">
+				    <div class="col-auto item-icon"><i class="fas fa-user-check"></i></div>
+				    <div class="col">
+					    <h4 class="item-title">Increases productivity</h4>
+					    <div class="item-desc">A to do list allows you to prioritize the tasks that are more important. This means you don’t waste time on tasks that don’t require your immediate attention. Your list will help you stay focused on the tasks that are the most important.</div>
+				    </div><!--//col-->
+			    </div><!--//item-->			    
+			    <div class="item row gx-3">
+				    <div class="col-auto item-icon"><i class="fas fa-user-check"></i></div>
+				    <div class="col">
+					    <h4 class="item-title">Helps with motivation</h4>
+					    <div class="item-desc">To do lists are a great motivational tool because you can use them to clarify your goals. You can divide your long-term goal into smaller, more achievable short-term goals and as you tick each one off your list, your confidence will increase.</div>
+				    </div><!--//col-->
+			    </div><!--//item-->
+			    
+			    </div><!--//item-->
+		    </div><!--//audience-->
+      </div><!--//container-->
+    </section><!--//audience-section-->
+	
+	<section id="content-section" class="content-section">
+	    <div class="container">
+		    <div class="single-col-max mx-auto">
+		    <h2 class="section-heading text-center mb-5">What to Gain</h2>
+			    <div class="row">
+				    <div class="col-12 col-md-6">
+					    <div class="figure-holder mb-5">
+						    <img class="img-fluid" src="assets/images/devbook-devices.png" alt="image" >
+					    </div><!--//figure-holder-->
+				    </div><!--//col-->
+				    <div class="col-12 col-md-6 mb-5">
+					    <div class="key-points mb-4 text-center">
+						    <ul class="key-points-list list-unstyled mb-4 mx-auto d-inline-block text-start">
+							    <li><i class="fas fa-check-circle me-2"></i>Tasks should be fast to add and organise in a descending  order.</li>
+							    <li><i class="fas fa-check-circle me-2"></i>Completed tasks can be tick and left on the interface.</li>
+								<li><i class="fas fa-check-circle me-2"></i>Completed tasks can be used for future reference when needed.</li>
+							    <li><i class="fas fa-check-circle me-2"></i>Ability to plan your workflow.</li>
+							    <li><i class="fas fa-check-circle me-2"></i>Setting priorities.</li>
+							    <li><i class="fas fa-check-circle me-2"></i>Reminders for any self-imposed deadlines. </li>
+							    <li><i class="fas fa-check-circle me-2"></i>Allocation of tasks if using it for task management.</li>
+						    </ul>
+						    <div class="text-center"><a class="btn btn-primary" href="#">Free Version</a></div>
+					    </div><!--//key-points-->
+					    
+				    </div><!--//col-12-->   
+			    </div><!--//row-->
+		    </div><!--//single-col-max-->
+	    </div><!--//container-->
+    </section><!--//content-section-->
+    
+    
+    <section id="author-section" class="author-section section theme-bg-primary py-5">
+	    <div class="container py-3">
+		    <div class="author-profile text-center mb-5">
+			    <img class="author-pic" src="assets/images/profiles/author-profile.png" alt="image" >
+		    </div><!--//author-profile-->
+		    <h2 class="section-heading text-center text-white mb-3">The Founder</h2>
+		    <div class="author-bio single-col-max mx-auto">
+			    <p>My name is Ezeikpe Ifenkwem, I am a system specialist, motivates in using technology to solve problems in different capacities. </p>
+			    <p>My specialty includes Database Administrator, System Network and Cyber Security Analyst, Frontend and Backend Operations and Web Designing. I have gotten certification in different tech programs, and presently studying Software Engineering with ALX Africa.</p>
+			    <div class="author-links text-center pt-4">
+			        <h5 class="text-white mb-4">Follow Me</h5>
+				    <ul class="social-list list-unstyled">
+					    <li class="list-inline-item"><a href="https://twitter.com/ezeikpeifenkwem"><i class="fab fa-twitter"></i></a></li>
+					    <li class="list-inline-item"><a href="https://github.com/ezeikpe"><i class="fab fa-github-alt"></i></a></li> 
+			            <li class="list-inline-item"><a href="https://linkedin.com/ezeikpeifenkwem"><i class="fas fa-linkedin"></i></a></li>
+			        </ul><!--//social-list-->
+			    </div><!--//author-links-->
+			    
+		    </div><!--//author-bio-->
+		    
+	    </div><!--//container-->
+    </section><!--//author-section-->
+    
+    
+
     <footer class="footer">
 
 	    <div class="footer-bottom text-center py-5">
 
 	        
-            <small class="copyright">Designed by Ezeikpe Ifenkwem</i> for <a class="theme-link" href="#" target="_blank">ALX </a>Schedular Project</small>
+            <small class="copyright">Designed by Ezeikpe Ifenkwem</i> for <a class="theme-link" href="#" target="_blank">ALX </a>Landing Page Project</small>
  
 	    </div>
 	    
@@ -110,5 +206,5 @@
     <script src="assets/js/main.js"></script>
 
 </body>
-</html> 
+</html>
 
