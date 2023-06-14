@@ -14,6 +14,9 @@ Finally, we start the Flask application using `app.run()`.
 
 To render the HTML templates, I create a folder named `templates` in the same directory as the `app.py` file and create an `index.html` file in the `templates` folder.
 
+With this code, you can run the Flask application and navigate to `http://localhost:5000` in your web browser to use the to-do list web application. You can add new items to the list, mark items as completed, and remove completed items from the list.
+
+
 
 
 WINDOW VERSION
