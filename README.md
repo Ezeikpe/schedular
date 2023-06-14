@@ -1,5 +1,19 @@
 APP VERSION
 
+In this app, I first import the necessary modules and create a new Flask application instance. We also initialize an empty list called `todo_items` to store our Schedular items.
+
+Next, I define two routes:
+
+- `/`: This route will render the index page with the list of to-do items. We pass the `todo_items` list to the template using the `render_template` function.
+
+- `/add`: This route will be called when the user submits a new to-do item using the form on the index page. We get the new item from the form data using `request.form['item']`, add it to the `todo_items` list, and then redirect the user back to the index page.
+
+- `/delete/<int:index>`: This route will be called when the user clicks the "delete" button next to a to-do item on the index page. We get the index of the item to delete from the URL using the `<int:index>` parameter, delete it from the `todo_items` list using `del`, and then redirect the user back to the index page.
+
+Finally, we start the Flask application using `app.run()`.
+
+To render the HTML templates, I create a folder named `templates` in the same directory as the `app.py` file and create an `index.html` file in the `templates` folder.
+
 
 
 WINDOW VERSION
