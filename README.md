@@ -17,6 +17,7 @@ To render the HTML templates, I create a folder named `templates` in the same di
 
 
 WINDOW VERSION
+
 **Steps to develop To-do List Project**
 Import the Tkinter library
 Create to-do list application window
